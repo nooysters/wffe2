@@ -6,7 +6,7 @@ info:
 schemes:
   - https
 # will be prefixed to all paths
-basePath: /
+basePath: /v1
 produces:
   - application/json
 paths:
@@ -32,6 +32,7 @@ definitions:
     properties:
       id:
         type: string
+        format: uuid
       name:
         type: string
       description:
