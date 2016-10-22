@@ -19,7 +19,6 @@ HOST: http://polls.apiblueprint.org/
     + description: `This is how we do it`
 + relationships (object, required)
     + form (Form) 
-    + `field-data` (array[Ticket Field Data])
 
 ### Field
 + id: 1
@@ -44,12 +43,12 @@ HOST: http://polls.apiblueprint.org/
 
     + Attributes
         + data (array[Ticket])
-        
+
 ## Tickets [/tickets/:ticket_id]
 
 + Parameters
     + ticket_id: 1 (required, number) - User's address ID
-    
+
 ### Get a ticket [GET]
 
 + Request (application/vnd.api+json)

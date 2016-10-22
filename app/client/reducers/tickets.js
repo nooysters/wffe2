@@ -1,4 +1,4 @@
-import { getAllTickets } from '../actions/ticket_actions'
+import { fetchAllTickets } from '../actions/ticket_actions'
 
 export const Ticket = (state = {
   "id": "",
@@ -14,11 +14,13 @@ export const Ticket = (state = {
 }
 
 export const TicketList = (state = [], action) => {
+
   switch (action.type) {
     case 'REQUEST_ALL_TICKETS':
       return state
 
     case 'RECEIVE_ALL_TICKETS':
+      console.log(action.tickets)
       return action.tickets.map(t => Ticket(t, action) )
     default:
       return state

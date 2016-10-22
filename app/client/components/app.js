@@ -1,10 +1,10 @@
 import React from 'react'
-import VisibleticketList from '../containers/visible_ticket_list'
+import VisibleTicketList from '../containers/visible_ticket_list'
 
-const App = () => (
-  <div>
-    <VisibleticketList />
-  </div>
-)
+class App extends React.Component {
+  render(){
+    return <div><VisibleTicketList /></div>
+  }
+}
 
 export default App

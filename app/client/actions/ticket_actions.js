@@ -1,8 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
 export const RECEIVE_ALL_TICKETS = 'RECEIVE_ALL_TICKETS'
-
-export function receiveAllTickets(tickets) {
+function receiveAllTickets(tickets) {
   return {
     type: RECEIVE_ALL_TICKETS,
     tickets
@@ -10,9 +9,12 @@ export function receiveAllTickets(tickets) {
 }
 
 export function fetchAllTickets() {
-  return dispatch => {
-    return fetch(`http://localhost:3000/tickets.json`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveAllTickets(json.data)))
+  return function(dispatch) {
+    return fetch(`http://private-febe2-flo4.apiary-mock.com/tickets`)
+      .then((response) => {
+        return response.json()
+      })
+      .then(json => dispatch(receiveAllTickets(json.data))
+    )
   }
 }
