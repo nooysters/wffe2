@@ -1,0 +1,64 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# flo
+
+## Data Structures
+
+### Ticket Field Data
++ id: 1
++ ticket_id: 1
++ field_id: 1
++ value: true
+
+### Ticket
++ id: 1 (string, required)
++ type: tickets (string, required)
++ attributes (object, required)
+    + name: Custom Job
+    + description: `This is how we do it`
++ relationships (object, required)
+    + form (Form) 
+
+### Field
++ id: 1
++ type: `select`
++ default_value: `hole`
+
+### Form
++ id: 1
++ fields (array[Field])
+
+## Tickets Collection [/tickets]
+
+### Returns all tickets [GET]
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            X-API-Version: 1
+            X-API-Token: API_TOKEN
+
++ Response 200 (application/vnd.api+json; charset=utf-8)
+
+    + Attributes
+        + data (array[Ticket])
+
+## Tickets [/tickets/:ticket_id]
+
++ Parameters
+    + ticket_id: 1 (required, number) - User's address ID
+
+### Get a ticket [GET]
+
++ Request (application/vnd.api+json)
+
+    + Headers
+
+            X-API-Version: 1
+            X-API-Token: API_TOKEN
+
++ Response 200 (application/vnd.api+json; charset=utf-8)
+
+    + Attributes
+        + data (Ticket)
